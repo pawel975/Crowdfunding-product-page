@@ -1,0 +1,83 @@
+*, *::before,*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-bar{
+    position: absolute;
+    top: 0px;
+    transform: translate(-50%,0);
+    left: 50%;
+width: 100%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 100%;
+    background-image: url('./images/image-hero-desktop.jpg');
+  
+  }
+
+  .nav-bar ul {
+    margin:2rem 6rem;
+    flex-wrap: wrap;
+    display: flex;
+    padding: 0em 1em;
+    list-style: none;
+    align-items: center;
+    /* outline: 2px solid red; */
+  }
+
+  .nav-bar li {
+    cursor: pointer;
+    margin: 1em;
+    font-size: 21px;
+    /* outline: 2px solid black; */
+  }
+
+  .logo {
+    display: flex;
+    color: white;
+    flex-grow: 1;
+    font-size: 2em;
+    font-weight: 650;
+    /* outline: 2px solid yellow; */
+    font-size: 2em;
+  }
+
+  .nav-bar a {
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+    /* outline: 2px solid red; */
+  }
+
+  .logo .logo-span {
+    content: url('./images/logo.svg');
+  }
+
+  .hamburger-span {
+justify-content: flex-end;
+    display: none;
+    height: 1.5rem;
+    content: url('./images/icon-hamburger.svg');
+  }
+  @media (max-width: 1280px) {
+    .nav-bar ul {
+        margin: 1rem;
+    }
+   }
+
+  @media (max-width: 600px) {
+    .nav-bar {
+      background-image: url('./images/image-hero-mobile.jpg');
+    }
+    .nav-bar li {
+        display: none;
+    }
+    .nav-bar li.logo {
+      display: inline-block;
+  }
+  .hamburger-span {
+        display: inline-block;
+      }
+   }

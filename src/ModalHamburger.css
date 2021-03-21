@@ -1,0 +1,57 @@
+*, *::before,*::after {
+    box-sizing: border-box;
+  }
+  
+.hamburger-background {
+    position: absolute;
+    opacity: 0.4;
+    background-color: black;
+    height: 210%;
+    width: 100%;
+}
+
+.hamburger-container {
+
+    position: fixed;
+    top: 60px;
+    border-radius: 10px;
+    background-color: white;
+    width: 85%;
+    height: auto;
+}
+
+.hamburger-container .logo {
+    position: absolute;
+    left: 0px;
+    top: -40px;
+    content: url("./images/logo.svg");
+}
+
+.hamburger-container .close {
+    position: absolute;
+    right:  0px;
+    top: -40px;
+    content: url("./images/icon-close-menu.svg");
+}
+
+.hamburger-ul {
+    list-style: none;
+
+}
+
+.hamburger-ul li {
+    padding: 1em;
+    color: black;
+    font-weight: 700;
+}
+
+.hamburger-ul a {
+    color: black;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.hamburger-ul hr {
+    width: 100%;
+    opacity: 0.2;
+}

@@ -1,0 +1,228 @@
+*, *::before,*::after {
+    box-sizing: border-box;
+  }
+
+  .modal-wrap {
+    margin-top: 1.5em;
+  }
+
+  .active { 
+    border-radius: 1em;
+    border: solid 2px hsl(176, 50%, 47%);
+  }
+
+  .modal-pledge-container {
+      position: relative;
+      border: 1px solid hsl(0, 0%, 81%);
+      border-radius: 10px;
+      width: 100%;
+      height: 100%;
+      padding: 1em 1.5em 1.5rem 1.5rem;
+      display: grid;
+      grid-template-columns: 6% 45% 23% 1fr;
+      grid-template-rows: 30% 70%;
+      grid-template-areas:
+      "input h1 h2 span"
+      ". p p p"
+      ;
+  }
+
+  .modal-pledge-container .radio-button {
+/* outline: 2px solid green; */
+color: green;
+align-self: center;
+height: 1.5rem;
+width: 1.5rem;
+justify-self: center;
+  }
+
+  .modal-pledge-container h1 {
+    padding: 0.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+    /* outline: 2px solid green; */
+    grid-area: h1;
+  }
+
+  .modal-pledge-container h1:hover {
+    cursor: pointer;
+    transition: 0.2s;
+color: hsl(176, 50%, 47%);
+  }
+
+  .modal-pledge-container h2 {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    color: hsl(176, 50%, 47%);
+    font-size: 14px;
+    font-weight: 500;
+    grid-area: h2;
+    overflow: hidden;
+    /* outline: 2px solid green; */
+  }
+
+  .modal-pledge-container p {
+      padding: 0.5em;
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    line-height: 1.4em;
+    grid-area: p;
+    /* outline: 2px solid green; */
+  }
+
+  .modal-pledge-container span {
+    justify-content: flex-end;
+    display: flex;
+    align-items: center;
+    grid-area: span;
+    /* outline: 2px solid green; */
+    color: hsl(0, 0%, 48%);
+  }
+
+  .modal-pledge-container strong {
+    font-weight: 700;
+    font-size: 20px;
+    color: black;
+}
+
+  .modal-pledge-container button {
+    transition: 0.2s;
+    border: none;
+    color: white;
+    font-weight: 700;
+    background-color: hsl(176, 50%, 47%);
+    height: 50px;
+    width: 150px;
+    border-radius: 25px;
+    display: flex;
+    align-self: center;
+    justify-self: flex-end;
+    justify-content: center;
+    align-items: center;
+    grid-area: button;
+    /* outline: 2px solid green; */
+  }
+
+  .modal-pledge-disabled {
+    pointer-events: none;
+    opacity: 0.4;
+  }
+
+  button:hover {
+    transition: 0.2s;
+    background-color: hsl(176, 72%, 28%);
+  }
+
+  .setPledge {
+    padding: 0.3em 0;
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    /* outline: 2px solid red; */
+  }
+
+  .setPledge h1 {
+    color:  hsl(0, 2%, 56%);
+    margin: 0.8em 2em;
+    flex-grow: 1;
+    font-size: 12px;
+    font-weight: 400;
+  }
+
+  .setPledge input {
+    font-weight: 600;
+    border-style: solid;
+    border-width: 1px;
+    border-color: hsl(176, 50%, 47%);
+    margin: 0.2em 1em;
+    width: 100px;
+    border-radius: 20px ;
+    text-align: center;
+  }
+  .setPledge button {
+    color: white;
+    border: none;
+    background-color:hsl(176, 50%, 47%) ;
+    border-radius: 20px ;
+    margin: 0.2em 1em;
+    padding: 0.5em 1em;
+  }
+
+  @media (max-width: 450px) {
+
+  
+    .modal-pledge-container {
+      position: static;
+      top: 0px;
+      display: grid;
+      grid-template-columns: 20% 30% 50%;
+      grid-template-rows: 20% 12% 55% 1fr;
+      grid-template-areas:
+      "input h1 h1"
+      "h2 h2 h2"
+      "p p p"
+      "span span span"
+      ;
+    }
+
+    .modal-pledge-container h1 {
+      font-size: 18px;
+      margin: 0 0 0 0
+    }
+    .modal-pledge-container h2 {
+      justify-self: center;
+      margin: 0 0 0.5em 0;
+    } 
+    .modal-pledge-container p {
+     margin: 0.5em 0 0 0;
+    }
+    .modal-pledge-container span {
+      margin: 0.2em 0 0 1em;
+      padding-left: 3em;
+    }
+    .setPledge {
+      padding: 0.3em 3em;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      grid-template-areas: 
+      "sPH1 sPH1"
+      "sPInput sPButton";
+      width: 100%;
+      height: 100px;
+    }
+  
+    .setPledge h1 {
+      grid-area: sPH1;
+      justify-self: center;
+      color:  hsl(0, 2%, 56%);
+      margin: 1em 0;
+      padding: 0;
+      font-size: 12px;
+      font-weight: 400;
+    }
+  
+    .setPledge input {
+      grid-area: sPInput;
+      font-weight: 600;
+      border-style: solid;
+      border-width: 1px;
+      border-color: hsl(176, 50%, 47%);
+      margin: 0.2em 1em;
+      width: 100px;
+      border-radius: 20px ;
+      text-align: center;
+    }
+    .setPledge button {
+      grid-area: sPButton;
+      color: white;
+      border: none;
+      background-color:hsl(176, 50%, 47%) ;
+      border-radius: 20px ;
+      margin: 0.2em 1em;
+      padding: 0.5em 1em;
+    }
+  }

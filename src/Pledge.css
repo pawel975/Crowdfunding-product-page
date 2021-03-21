@@ -1,0 +1,119 @@
+*, *::before,*::after {
+    box-sizing: border-box;
+  }
+
+  
+  .pledge-container {
+      margin: 1.5em 0 0 0;
+      position: relative;
+      border: 1px solid hsl(0, 0%, 81%);
+      border-radius: 10px;
+      width: 100%;
+      height: 100%;
+      padding: 0.5em 1.5em;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr 1fr;
+      grid-template-areas:
+      "h1 h2"
+      "p p"
+      "span button" 
+      ;
+
+  }
+  .pledge-container h1 {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+    /* outline: 2px solid green; */
+    grid-area: h1;
+  }
+
+  .pledge-container h2 {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    color: hsl(176, 50%, 47%);
+    font-size: 14px;
+    font-weight: 500;
+    grid-area: h2;
+    overflow: hidden;
+    /* outline: 2px solid green; */
+  }
+
+  .pledge-container p {
+      padding: 0.5em;
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    line-height: 1.4em;
+    grid-area: p;
+    /* outline: 2px solid green; */
+  }
+
+  .pledge-container span {
+    display: flex;
+    align-items: center;
+    grid-area: span;
+    /* outline: 2px solid green; */
+    color: hsl(0, 0%, 48%);
+  }
+
+  .pledge-container strong {
+    font-weight: 700;
+    font-size: 30px;
+    color: black;
+}
+
+  .pledge-container button {
+    transition: 0.2s;
+    border: none;
+    color: white;
+    font-weight: 700;
+    background-color: hsl(176, 50%, 47%);
+    height: 50px;
+    width: 150px;
+    border-radius: 25px;
+    display: flex;
+    align-self: center;
+    justify-self: flex-end;
+    justify-content: center;
+    align-items: center;
+    grid-area: button;
+    /* outline: 2px solid green; */
+  }
+
+  .pledge-disabled {
+    opacity: 0.4;
+  }
+
+/* Tu dokończyć stylowanie przycisku na szary */
+  button:disabled:hover {
+    background-color: grey;
+  }
+  button:disabled {
+    background-color: grey;
+  }
+
+  @media (max-width: 450px) {
+
+    .pledge-container {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .pledge-container h1, 
+    .pledge-container h2, 
+    .pledge-container p, 
+    .pledge-container span, 
+    .pledge-container button 
+    {
+      margin: 0.2em;
+    }
+
+    .pledge-container button {
+      align-self: flex-start;
+      justify-self: none;
+    }
+  }

@@ -1,0 +1,229 @@
+
+*, *::before,*::after {
+  box-sizing: border-box;
+}
+
+.title-container {
+  margin: 0.5em 0;
+    padding: 1em 0;
+    position: relative;
+    height:250px;
+    width: 750px;
+    border-radius: 10px;
+    background: white;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+    top: 280px;
+    color: black;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 30% 30% 40%;
+    grid-template-areas: 
+    "title title"
+    "second-title second-title"
+    "button bookmark"
+}
+
+.title-container:before {
+  position: absolute;
+  transform: translate(-50%,-50%);
+  left: 50%;
+  content: url('./images/logo-mastercraft.svg');
+}
+
+.title-container h1{
+  grid-area: title;
+  padding: 0.7em 0 0.3em 0;
+  /* outline: 5px solid red; */
+    text-align: center;
+    color: black;
+    font-size: 2em;
+}
+
+.title-container h4 {
+  grid-area: second-title;
+  padding: 0.5em;
+  /* outline: 5px solid red; */
+    text-align: center;
+    font-weight: 400;
+    color: hsl(0, 0%, 48%)
+}
+
+.title-container button {
+  transition: 0.2s;
+  margin: 0 0 1.5em 3em;
+  justify-self: start;
+  align-self: end;
+  grid-area: button;
+  /* outline: 5px solid red; */
+  display: inline-block;
+  width: 200px;
+  height: 60px;
+  border-radius: 30px;
+  font-size: 17px;
+  font-weight: 700;
+  color: white;
+  border: none;
+  background-color:  hsl(176, 50%, 47%);;
+  cursor: pointer;
+}
+  /* The slider */
+.switch {
+  margin: 0 3em 1.5em 0;
+  justify-self: end;
+  align-self: end;
+  grid-area: bookmark;
+    position: relative;
+    display: inline-block;
+    width: 200px;
+    height: 60px;
+  }
+  
+  /* Hide default HTML checkbox */
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .slider {
+    /* outline: 5px solid red; */
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0px;
+    right: 0;
+    bottom: 0;
+    background-color: rgb(231, 231, 231);
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 60px;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: url('./images/icon-bookmark.svg');
+    height: 60px;
+    width: 60px;
+    left: 1px;
+    bottom: 0px;
+    background-color: hsl(0, 0%, 48%);
+    -webkit-transition: .4s;
+    transition: .4s;
+
+    border-radius: 50%;
+  }
+
+  input:checked + .slider {
+    background-color: hsl(178, 30%, 83%);
+  }
+
+  input:checked + .slider:before {
+    background-color: hsl(176, 72%, 28%);
+    content: url('./images/icon-bookmark-2.svg');
+    -webkit-transition: .4s;
+    transition: .4s
+  }
+  
+  .slider:after {
+    position: absolute;
+    display: inline-block;
+    top: 50%;
+    left: 64%;
+    content: "Bookmark";
+    color: hsl(0, 0%, 48%);
+    font-size: 17px;
+    font-weight: 700;
+    transform: translate(-50%,-50%);
+  }
+
+  input:checked + .slider:after {
+    color: hsl(176, 72%, 28%);
+    content: "Bookmarked";
+  }
+
+  button:hover {
+    transition: 0.2s;
+    background-color: hsl(176, 72%, 28%);
+  }
+
+   @media (max-width: 1280px) {
+    .title-container {
+        position: relative;
+        top: 200px;
+        max-width: calc(100vw - 2rem);
+        
+    }
+   }
+
+   @media (max-width: 600px) {
+    .title-container {
+        min-height:250px;
+        height: 400px;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 30% 30% auto;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 30% 30% 40%;
+        grid-template-areas: 
+        "title title"
+        "second-title second-title"
+        "button bookmark"
+    }
+    .title-container button {
+      margin-left: 1.5rem;
+      height: 50px;
+    }
+
+    .title-container h1 {
+      font-size: 20px;
+    }
+
+    .title-container h4 {
+      font-size: 14px;
+    }
+
+   }
+   @media (max-width: 500px) {
+    .title-container {
+        min-height:250px;
+        height: 400px;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 30% 30% auto;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 30% 30% 40%;
+        grid-template-areas: 
+        "title title"
+        "second-title second-title"
+        "button ."
+    }
+    .title-container button {
+      width: 160px;
+      margin-left: 1.5rem;
+      height: 50px;
+    }
+    .title-container h1 {
+      font-size: 20px;
+    }
+
+    .title-container h4 {
+      font-size: 14px;
+    }
+    .switch {
+      display: none;
+
+    }
+
+    .title-container button::after {
+      position: absolute;
+      bottom: 2.5em;
+      right: 1.5em;
+      height: 50px;
+      border-radius: 25px;
+      width: 50px;
+      background-color: grey;
+      display: flex;
+      align-content: center;
+      justify-content: center;
+      content: url('./images/icon-bookmark.svg');
+    }
+   }
+
