@@ -17,6 +17,7 @@ function ModalPledge(props) {
         const pledge = Number(e.target.parentNode.parentNode.id)
         const tempPledges = [...state.packages]
         stateSetter({
+            ...state,
             packages: tempPledges.map(item => {
                 if (item.id === pledge) {
                     return {

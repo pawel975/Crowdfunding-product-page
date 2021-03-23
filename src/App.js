@@ -86,6 +86,7 @@ function App() {
     }
 
     setState({
+      ...state,
       packages: tempPledges.map(item => {
         if (item.id === pledge) {
           return {
