@@ -43,10 +43,9 @@ function ModalPledge(props) {
         setBorder(!border)
     }
 
-
     return (
         <div className={`modal-wrap 
-        ${border ? "active" : null}`} >
+        ${border? "active" : null}`} >
             <div className={`modal-pledge-container ${amount > 0 ? null : "modal-pledge-disabled"}`}>
 
                 <input
@@ -65,7 +64,7 @@ function ModalPledge(props) {
                 <p>{description}</p>
                 <span><strong style={{ margin: "0 0.2em" }}>{amount}</strong>left</span>
             </div>
-            {border ?
+            {border?
                 <div id={id} className={`setPledge ${amount > 0 ? null : "modal-pledge-disabled"}`}>
                     <h1>Enter your pledge</h1>
                     <input 
