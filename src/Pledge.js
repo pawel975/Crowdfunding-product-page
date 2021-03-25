@@ -12,7 +12,7 @@ function Pledge({ name, pledge, description, amount, click, id }) {
             <span><strong style={{ marginRight: "0.2em" }}>{amount}</strong>left</span>
             <button
                 disabled={amount > 0 ? false : true}
-                onClick={click}>Select Reward
+                onClick={click}>{amount > 0 ? "Select reward" : "Out of stock"}
                 </button>
         </div>
     )

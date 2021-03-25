@@ -14,6 +14,7 @@ function ModalPledge(props) {
     }
 
     const handleReward = (e) => {
+        if(donation < price) return alert(`The minimum pledge is ${price}`)
         const pledge = Number(e.target.parentNode.parentNode.id)
         const tempPledges = [...state.packages]
         stateSetter({
@@ -37,32 +38,42 @@ function ModalPledge(props) {
 
 
     const [border, setBorder] = useState(() => false)
+
     const handleBorder = () => {
         setBorder(!border)
     }
-    const modalWrapActive = border;
+
 
     return (
         <div className={`modal-wrap 
-        ${modalWrapActive ? "active" : null}`} >
+        ${border ? "active" : null}`} >
             <div className={`modal-pledge-container ${amount > 0 ? null : "modal-pledge-disabled"}`}>
 
                 <input
-                    onClick={handleBorder}
+                    onChange={handleBorder}
                     type="radio"
                     className="radio-button"
+                    name="choose-pledge"
+                    id="choose-pledge"
                     disabled={amount > 0 ? false : true}
-                    checked={border}
+                    checked={border} 
                 />
+                <label htmlFor="choose-pledge">
                 <h1>{name}</h1>
+                    </label>
                 <h2>{pledge}</h2>
                 <p>{description}</p>
                 <span><strong style={{ margin: "0 0.2em" }}>{amount}</strong>left</span>
             </div>
-            {modalWrapActive ?
+            {border ?
                 <div id={id} className={`setPledge ${amount > 0 ? null : "modal-pledge-disabled"}`}>
                     <h1>Enter your pledge</h1>
-                    <input onChange={handleDonation} type="number" placeholder={price} min={price} />
+                    <input 
+                        onChange={handleDonation} 
+                        type="number" 
+                        placeholder={`$ ${price}`} 
+                        min={price} 
+                    />
                     <button onClick={handleReward}>Continue</button>
                 </div>
                 : null}
