@@ -57,7 +57,7 @@ width: 100%;
 
   .hamburger-span {
     justify-content: flex-end;
-    display: inline-block;
+    display: none;
     height: 1.5rem;
     content: url('./images/icon-hamburger.svg');
   }
