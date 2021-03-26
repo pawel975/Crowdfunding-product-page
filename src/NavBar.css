@@ -56,8 +56,8 @@ width: 100%;
   }
 
   .hamburger-span {
-justify-content: flex-end;
-    display: none;
+    justify-content: flex-end;
+    display: inline-block;
     height: 1.5rem;
     content: url('./images/icon-hamburger.svg');
   }
@@ -71,7 +71,7 @@ justify-content: flex-end;
     .nav-bar {
       background-image: url('./images/image-hero-mobile.jpg');
     }
-    .nav-bar li {
+    .nav-option {
         display: none;
     }
     .nav-bar li.logo {

@@ -13,9 +13,9 @@ function NavBar(props) {
                 {isHamburgerActive ?
                     <li onClick={click} className="hamburger-span"></li>
                     : null}
-                <li><a href="$">About</a></li>
-                <li><a href="$">Discover</a></li>
-                <li><a href="$">Get Started</a></li>
+                <li className="nav-option"><a href="$">About</a></li>
+                <li className="nav-option"><a href="$">Discover</a></li>
+                <li className="nav-option"><a href="$">Get Started</a></li>
 
             </ul>
         </nav>
