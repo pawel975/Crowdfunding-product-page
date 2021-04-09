@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import './ModalPledge.css';
 
 function ModalPledge(props) {
@@ -36,26 +36,31 @@ function ModalPledge(props) {
         })
     }
 
+    const [checkArray, setCheckArray] = useState([]);
+    
+    const [border, setBorder] = useState(false)
 
-    const [border, setBorder] = useState(() => false)
+    const inputChecked = useRef()
 
     const handleBorder = () => {
-        setBorder(!border)
+     setBorder(!border) 
+     console.log(inputChecked.current)
     }
 
     return (
-        <div className={`modal-wrap 
-        ${border? "active" : null}`} >
+        <div className={`modal-wrap
+        ${border && inputChecked.current.checked? "active " : null}`}
+        >
             <div className={`modal-pledge-container ${amount > 0 ? null : "modal-pledge-disabled"}`}>
-
-                <input
-                    onChange={handleBorder}
+                <input 
+                    ref={inputChecked}
+                    onClick={handleBorder}
                     type="radio"
                     className="radio-button"
                     name="choose-pledge"
                     id="choose-pledge"
                     disabled={amount > 0 ? false : true}
-                    checked={border} 
+                    // checked={border}
                 />
                 <label htmlFor="choose-pledge">
                 <h1>{name}</h1>
@@ -64,8 +69,8 @@ function ModalPledge(props) {
                 <p>{description}</p>
                 <span><strong style={{ margin: "0 0.2em" }}>{amount}</strong>left</span>
             </div>
-            {border?
-                <div id={id} className={`setPledge ${amount > 0 ? null : "modal-pledge-disabled"}`}>
+ 
+            <div id={id} className={`setPledge ${amount > 0 ? null : "modal-pledge-disabled"} ${border? "display-pledge" : null}`}>
                     <h1>Enter your pledge</h1>
                     <input 
                         onChange={handleDonation} 
@@ -74,8 +79,8 @@ function ModalPledge(props) {
                         min={price} 
                     />
                     <button onClick={handleReward}>Continue</button>
-                </div>
-                : null}
+            </div>
+
         </div>
     )
 }
